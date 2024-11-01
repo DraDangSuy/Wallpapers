@@ -6,63 +6,76 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background: radial-gradient(circle, #2193b0, #6dd5ed, #a8c0ff, #3f2b96, #ee9ca7, #ffdde1); /* Radial gradient background */
+    background-size: 200% 200%; /* To animate the gradient */
+    color: #fff; /* White text for better contrast */
     line-height: 1.6;
+    animation: gradientBackground 30s ease infinite; /* Slower animation for gradient */
 }
 
-header {
-    background-color: #6200ea;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 main {
-    padding: 20px;
+    padding: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increase the minimum size of columns */
+    gap: 50px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1800px; /* Increased max-width for the gallery */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .video {
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
 }
 
 video {
-    width: 100%; /* Video will take the full width of the container */
-    max-width: 400px; /* Set a max width for the video */
+    width: 100%; /* Video takes full width of the container */
+    max-width: 600px; /* Increased max width for the video */
     height: auto; /* Maintain the aspect ratio */
     display: block;
     border-radius: 10px;
+    pointer-events: none; /* Disable interaction with the video */
+}
+
+.video-title {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #fff; /* White text color */
 }
 
 .video:hover {
-    transform: translateY(-10px);
+    transform: scale(1.1); /* Scale the entire video container, including background */
 }
 
 footer {
-    background-color: #333;
+    background-color: #111;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     font-size: 0.9rem;
+    margin-top: 20px;
 }
